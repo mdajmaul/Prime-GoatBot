@@ -60,11 +60,11 @@ module.exports = {
 ⭓ 🗓️ 𝗗𝗮𝘁𝗲        : 『 ${date} 』
 ⭓ ⏰ 𝗧𝗶𝗺𝗲        : 『 ${time} 』
 
-⭓ 👑 𝗢𝘄𝗻𝗲𝗿      : 『 ${ownerName} 』
-⭓ 🎂 𝗔𝗴𝗲        : 『 ${ownerAge} 』
-⭓ ❤️ 𝗦𝘁𝗮𝘁𝘂𝘀     : 『 ${status} 』
-⭓ 📱 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽  : 『 ${ownerNumber} 』
-⭓ 🌐 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸  : 『 ${ownerFB} 』
+⭓ 👑 𝗢𝘄𝗻𝗲𝗿      : 『 ${Killua_Zoldyck} 』
+⭓ 🎂 𝗔𝗴𝗲        : 『 ${18+} 』
+⭓ ❤️ 𝗦𝘁𝗮𝘁𝘂𝘀     : 『 ${single} 』
+⭓ 📱 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽  : 『 ${+88013XXXXXXXX} 』
+⭓ 🌐 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸  : 『 ${https://www.facebook.com/profile.php?id=61570738642014} 』
 
 ╚══════════════════════════╝
 `,
