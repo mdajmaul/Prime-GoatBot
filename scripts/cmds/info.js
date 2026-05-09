@@ -21,9 +21,9 @@ module.exports = {
 
   onStart: async function ({ message }) {
 
-    const ownerName = "STARBOY APHELION";
+    const ownerName = "na gi";
     const ownerAge = "N/A";
-    const ownerFB = "https://facebook.com/star.boy.aphelion";
+    const ownerFB = "https://www.facebook.com/seishiro.nagi.420";
     const ownerNumber = "+88019XXXXXXX";
     const status = "Active";
 
