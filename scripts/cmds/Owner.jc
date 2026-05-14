@@ -1,4 +1,4 @@
-// Owner Command — Neon PFP Canvas GIF — Rakib Islam / Ghost Net Edition
+// Owner Command — Neon PFP Canvas GIF — Ajmaul islam / Ghost Net Edition
 
 const { createCanvas, loadImage } = require("canvas");
 const GIFEncoder = require("gifencoder");
@@ -6,7 +6,7 @@ const axios = require("axios");
 const fs = require("fs-extra");
 const path = require("path");
 
-const OWNER_UID = "61575436812912";
+const OWNER_UID = "100091050051972";
 const BIO = {
   name: "Ajmaul islam",
   location: "Joypurhat ",
