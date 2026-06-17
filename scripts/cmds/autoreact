@@ -1,0 +1,88 @@
+module.exports = {
+  name: "autoreact",
+  description: "Admin er message e auto react on/off",
+  usage: ".autoreact on | off | emoji <emoji>",
+
+  // ─── Main command handler ───────────────────────────────
+  run(api, event, args, config, saveConfig) {
+    const { threadID, senderID } = event;
+
+    // Admin check
+    if (!config.adminID.includes(String(senderID))) {
+      return api.sendMessage(
+        "❌ Tumi admin na! Ei command use korte parba na.",
+        threadID
+      );
+    }
+
+    const sub = (args[0] || "").toLowerCase();
+
+    // .autoreact on
+    if (sub === "on") {
+      config.autoReact = true;
+      saveConfig(config);
+      return api.sendMessage(
+        "✅ AutoReact ON!\n" +
+        "Ekhon theke shudhu tomar (admin er) message e react dibo.\n" +
+        `😊 Current emoji: ${config.reactionEmoji}`,
+        threadID
+      );
+    }
+
+    // .autoreact off
+    if (sub === "off") {
+      config.autoReact = false;
+      saveConfig(config);
+      return api.sendMessage(
+        "🚫 AutoReact OFF!\n" +
+        "React deowa bondho kora hoyeche.",
+        threadID
+      );
+    }
+
+    // .autoreact emoji 😆
+    if (sub === "emoji") {
+      const emoji = args[1];
+      if (!emoji) {
+        return api.sendMessage(
+          "⚠️ Emoji dao!\nExample: .autoreact emoji 😆",
+          threadID
+        );
+      }
+      config.reactionEmoji = emoji;
+      saveConfig(config);
+      return api.sendMessage(
+        `✅ React emoji change hoyeche!\nNew emoji: ${emoji}`,
+        threadID
+      );
+    }
+
+    // .autoreact — status show
+    const status = config.autoReact ? "✅ ON" : "🚫 OFF";
+    return api.sendMessage(
+      `📊 AutoReact Status\n` +
+      `━━━━━━━━━━━━━━━━\n` +
+      `Status : ${status}\n` +
+      `Emoji  : ${config.reactionEmoji}\n\n` +
+      `📌 Commands:\n` +
+      `.autoreact on        — React চালু\n` +
+      `.autoreact off       — React বন্ধ\n` +
+      `.autoreact emoji 😆  — Emoji change`,
+      threadID
+    );
+  },
+
+  // ─── Auto react handler (script.js theke call hobe) ────
+  // Ei function ta script.js er listener e boshano lagbe
+  handleReact(api, event, config) {
+    if (!config.autoReact) return;
+    if (!config.adminID.includes(String(event.senderID))) return;
+
+    api.setMessageReaction(
+      config.reactionEmoji,
+      event.messageID,
+      (err) => { if (err) console.log("[AutoReact] Error:", err); },
+      true
+    );
+  },
+};
